@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon" />
+
+  <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="<%= clientKey %>"></script>
+  <script src="https://unpkg.com/loading-progress-bar"></script>
+
+  <title>
+    <%- title %>
+  </title>
+</head>
+
+<body>
+    <loading-progress-bar id="loadingProgressBar"></loading-progress-bar>
+    <div class='cart'>
+      <input type='hidden' id='snap_token' value="<%= token %>" />
+    </div>
+
+    <script>
+      var token = document.querySelectorAll('#snap_token')[0].value;
+      LoadingProgressBar.loadingProgressBar('loading-progress-bar');
+      const loadingProgressBarEl = document.querySelector('#loadingProgressBar');
+      setInterval(() => {
+        loadingProgressBarEl.generateProgress.next();
+      }, 3000);
+      snap.pay(token, {
+        onSuccess: function (result) {
+          console.log("SUCCESS", result);
+          alert("Payment accepted \r\n" + JSON.stringify(result));
+        },
+        onPending: function (result) {
+          console.log("Payment pending", result);
+          alert("Payment pending \r\n" + JSON.stringify(result));
+        },
+        onError: function () {
+          console.log("Payment error");
+        }
+      });
+    </script>
+
+</body>
+
+</html>

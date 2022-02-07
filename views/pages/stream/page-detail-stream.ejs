@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../includes/header.ejs', {title : title}) %>
+
+  <body>
+    <loading-progress-bar id="loadingProgressBar"></loading-progress-bar>
+    <%- include('../../includes/navbar.ejs') %>
+      <div class="container">
+        <video id="videoPlayer" width="650" controls muted="muted" autoplay>
+          <source src="api/v1/videos/sample-video" type="video/mp4" />
+        </video>
+      </div>
+      <%- include('../../includes/footer.ejs') %>
+  </body>
+
+</html>

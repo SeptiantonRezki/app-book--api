@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/header.ejs'), {title : title} %>
+
+<body>
+  <loading-progress-bar id="loadingProgressBar"></loading-progress-bar>
+  <%- include('../includes/navbar.ejs') %>
+  <div class="container mt-3 mb-3">
+    <div class="row g-3">
+      <% for(var i=0; i < items.length; i++) { %> <%-
+        include("../components/card-item.ejs",{title:"your_title", item :
+        items[i]}) %> <% } %>
+    </div>
+  </div>
+  <%- include('../includes/footer.ejs') %>
+</body>
+
+</html>

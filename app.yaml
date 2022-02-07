@@ -1,0 +1,9 @@
+runtime: nodejs12
+
+env_variables:
+  CLOUD_SQL_USERNAME: septian17
+  CLOUD_SQL_PASSWORD: anton123
+  CLOUD_SQL_DATABASE_NAME: db_movie
+  CLOUD_SQL_CONNECTION_NAME: algebraic-argon-337418:asia-southeast1:db-personal
+  MIDTRANS_CLIENT_API_KEY : SB-Mid-client-YP_pICJlssDUOy8E
+  MIDTRANS_SERVER_API_KEY : SB-Mid-server-Qe1vn_3Gw6O1sEoGzdSwj41W
